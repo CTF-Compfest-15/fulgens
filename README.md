@@ -13,5 +13,8 @@ Using poetry:
 poetry add git+https://github.com/CTF-Compfest-15/fulgens.git 
 ```
 
+## Documentation
+Read the documentation online at [fulgens.readthedocs.io](https://fulgens.readthedocs.io/) or check its source in the `docs` directory.
+
 ## Example Usage
 Please refer to [examples](examples) for example usage when developing checker.

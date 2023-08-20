@@ -11,7 +11,7 @@ import subprocess
 import yaml
 
 class Verdict():
-    """Define checker verdict
+    """Define checker verdict.
 
     Attributes
     ----------
@@ -84,7 +84,8 @@ class Verdict():
         return Verdict("ERROR", message)
 
 class ChallengeHelper():
-    """Helper for checker to get and interact with the service data
+    """
+    Helper for checker to get and interact with the service.
 
     Attributes
     ----------

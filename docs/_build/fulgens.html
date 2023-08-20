@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>fulgens module &#8212; Fulgens  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to Fulgens’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="fulgens-module">
+<h1>fulgens module<a class="headerlink" href="#fulgens-module" title="Link to this heading">¶</a></h1>
+<span class="target" id="module-fulgens"></span><dl class="py class">
+<dt class="sig sig-object py" id="fulgens.ChallengeHelper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fulgens.</span></span><span class="sig-name descname"><span class="pre">ChallengeHelper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addresses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_challenge_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remote_challenge_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compose_filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'docker-compose.yml'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ssh_conn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Connection</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fulgens.ChallengeHelper" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper for checker to get and interact with the service.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>addresses: List[str]</strong></dt><dd><p>List of service addresses that exposed.</p>
+</dd>
+<dt><strong>secret: str</strong></dt><dd><p>Team secret key.</p>
+</dd>
+<dt><strong>local_challenge_dir: pathlib.Path</strong></dt><dd><p>Local challenge directory.</p>
+</dd>
+<dt><strong>remote_challenge_dir: pathlib.Path</strong></dt><dd><p>Remote challenge directory.</p>
+</dd>
+<dt><strong>compose_filename: str</strong></dt><dd><p>Compose filename. The default value is <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>.</p>
+</dd>
+<dt><strong>ssh_conn: fabric.Connection or None</strong></dt><dd><p>SSH connection to the server that runs the services. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, it will assume
+that the service is in the same server as the checker, also <code class="xref py py-attr docutils literal notranslate"><span class="pre">remote_challenge_dir</span></code>
+and <code class="xref py py-attr docutils literal notranslate"><span class="pre">local_challenge_dir</span></code> will have the same value.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fulgens.ChallengeHelper.fetch" title="fulgens.ChallengeHelper.fetch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch</span></code></a>(service_name, source, dest)</p></td>
+<td><p>Fetch file/folder from the remote service container to the local filesystem.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fulgens.ChallengeHelper.run" title="fulgens.ChallengeHelper.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(service_name, cmd)</p></td>
+<td><p>Run shell commands inside the service container.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="fulgens.ChallengeHelper.fetch">
+<span class="sig-name descname"><span class="pre">fetch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fulgens.ChallengeHelper.fetch" title="Link to this definition">¶</a></dt>
+<dd><p>Fetch file/folder from the remote service container to the local filesystem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>service_name: str</strong></dt><dd><p>Service name.</p>
+</dd>
+<dt><strong>source: str | pathlib.Path</strong></dt><dd><p>Service container path file.</p>
+</dd>
+<dt><strong>dest: str | pathlib.Path</strong></dt><dd><p>Local filesystem path.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>bool</dt><dd><p>Whether fetch is successful or not.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>If the service name requested cannot be found.</p>
+</dd>
+<dt>IOError</dt><dd><p>If there is something wrong with the file transfer or modification.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fulgens.ChallengeHelper.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fulgens.ChallengeHelper.run" title="Link to this definition">¶</a></dt>
+<dd><p>Run shell commands inside the service container.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>service_name: str</strong></dt><dd><p>Service name.</p>
+</dd>
+<dt><strong>cmd: List[str] or str</strong></dt><dd><p>Command to be executed.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>bytes</dt><dd><p>Standard output.</p>
+</dd>
+<dt>bytes</dt><dd><p>Standard error.</p>
+</dd>
+<dt>int</dt><dd><p>exit code</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>If the service name requested cannot be found.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fulgens.Verdict">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fulgens.</span></span><span class="sig-name descname"><span class="pre">Verdict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fulgens.Verdict" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Define checker verdict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>status: str</strong></dt><dd><p>Verdict status. <code class="docutils literal notranslate"><span class="pre">OK</span></code> is given if the service passed all the testcases, <code class="docutils literal notranslate"><span class="pre">FAIL</span></code> if the
+service fail on some testcases (e.g.: give invalid response or take too long to respond),
+or <code class="docutils literal notranslate"><span class="pre">ERROR</span></code> if the checker cannot execute the testcase properly.</p>
+</dd>
+<dt><strong>message: str</strong></dt><dd><p>Additional information related to the verdict given.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fulgens.Verdict.ERROR" title="fulgens.Verdict.ERROR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ERROR</span></code></a>(message)</p></td>
+<td><p>Create ERROR verdict object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#fulgens.Verdict.FAIL" title="fulgens.Verdict.FAIL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FAIL</span></code></a>(message)</p></td>
+<td><p>Create FAIL verdict object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#fulgens.Verdict.OK" title="fulgens.Verdict.OK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OK</span></code></a>([message])</p></td>
+<td><p>Create OK verdict object.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="fulgens.Verdict.ERROR">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ERROR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fulgens.Verdict.ERROR" title="Link to this definition">¶</a></dt>
+<dd><p>Create ERROR verdict object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message: str</strong></dt><dd><p>See the <code class="xref py py-attr docutils literal notranslate"><span class="pre">message</span></code> attribute.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>fulgens.Verdict</dt><dd><p>Verdict object with <code class="docutils literal notranslate"><span class="pre">ERROR</span></code> status.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fulgens.Verdict.FAIL">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FAIL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fulgens.Verdict.FAIL" title="Link to this definition">¶</a></dt>
+<dd><p>Create FAIL verdict object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message: str</strong></dt><dd><p>See the <code class="xref py py-attr docutils literal notranslate"><span class="pre">message</span></code> attribute.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>fulgens.Verdict</dt><dd><p>Verdict object with <code class="docutils literal notranslate"><span class="pre">FAIL</span></code> status.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fulgens.Verdict.OK">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OK</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fulgens.Verdict.OK" title="Link to this definition">¶</a></dt>
+<dd><p>Create OK verdict object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message: str</strong></dt><dd><p>See the <code class="xref py py-attr docutils literal notranslate"><span class="pre">message</span></code> attribute.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>fulgens.Verdict</dt><dd><p>Verdict object with <code class="docutils literal notranslate"><span class="pre">OK</span></code> status.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Fulgens</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fulgens module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fulgens.ChallengeHelper"><code class="docutils literal notranslate"><span class="pre">ChallengeHelper</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fulgens.Verdict"><code class="docutils literal notranslate"><span class="pre">Verdict</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Fulgens’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, CTF COMPFEST.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/fulgens.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
