@@ -1,0 +1,16 @@
+._*
+.DS_Store
+
+__pycache__/
+build/
+dist/
+env/
+htmlcov/
+sdist/
+wheels/
+*.egg-info/
+*.egg
+*.lprof
+*.py[co]
+.coverage
+.tox
