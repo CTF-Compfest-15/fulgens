@@ -36,7 +36,7 @@ class Verdict():
         self.message = message
 
     @classmethod
-    def OK(cls, message = None):
+    def OK(cls, message = ""):
         """Create OK verdict object.
 
         Parameters
@@ -92,9 +92,9 @@ class ChallengeHelper():
         List of service addresses that exposed.
     secret: str
         Team secret key.
-    local_challenge_dir: str or pathlib.Path
+    local_challenge_dir: pathlib.Path
         Local challenge directory.
-    remote_challenge_dir: str or pathlib.Path
+    remote_challenge_dir: pathlib.Path
         Remote challenge directory.
     compose_filename: str
         Compose filename. The default value is ``docker-compose.yml``.
@@ -222,7 +222,7 @@ class ChallengeHelper():
             return self.__transfer_file_wrapper(container_fname, dest)
 
     def run(self, service_name: str, cmd: List[str] | str):
-        """Run shell commands inside the service container
+        """Run shell commands inside the service container.
 
         Parameters
         ----------
