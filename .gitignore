@@ -14,3 +14,5 @@ wheels/
 *.py[co]
 .coverage
 .tox
+
+!docs/build

@@ -101,7 +101,7 @@ class ChallengeHelper():
     ssh_conn: fabric.Connection or None
         SSH connection to the server that runs the services. If ``None``, it will assume
         that the service is in the same server as the checker, also :attr:`~ChallengeHelper.remote_challenge_dir`
-        and :attr:`~ChallengeHelper.remote_challenge_dir`will have the same value.
+        and :attr:`~ChallengeHelper.local_challenge_dir` will have the same value.
     """
     def __init__(self, addresses: List[str], secret: str, local_challenge_dir: str | pathlib.Path, remote_challenge_dir: str | pathlib.Path = None, compose_filename: str = "docker-compose.yml", ssh_conn: fabric.Connection | None = None):
         """Constructor.
