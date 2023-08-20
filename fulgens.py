@@ -35,6 +35,16 @@ class Verdict():
         self.status = status
         self.message = message
 
+    def is_ok(self):
+        """Check is the verdict is ``OK`` or not.
+
+        Returns
+        -------
+        bool
+            Whether the verdict is ``OK`` or not.
+        """
+        return self.status == "OK"
+
     @classmethod
     def OK(cls, message = ""):
         """Create OK verdict object.
