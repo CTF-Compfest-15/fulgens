@@ -3,7 +3,7 @@ import setuptools
 if __name__ == "__main__":
     setuptools.setup(
         name='fulgens',
-        version='0.2.0',
+        version='0.2.1',
         description='COMPFEST Attack-and-Defense CTF challenge checker helper',
         author='CTF COMPFEST',
         py_modules=["fulgens"],
