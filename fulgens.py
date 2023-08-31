@@ -154,10 +154,11 @@ class ChallengeHelper():
         if not self.ssh_conn:
             cmd_res = subprocess.run(real_cmd, capture_output=True, shell=True)
             return_code = cmd_res.returncode
+            return cmd_res.stdout, cmd_res.stderr, cmd_res.returncode
         else:
             cmd_res = self.ssh_conn.run(real_cmd, hide=True)
             return_code = cmd_res.exited
-        return cmd_res.stdout, cmd_res.stderr, return_code
+            return cmd_res.stdout.encode(), cmd_res.stderr.encode(), cmd_res.exited
     
     def __cmd_container_wrapper(self, service_name: str, cmd: str):
         real_cmd = f"docker compose -f {self.compose_path} exec {service_name} /bin/sh -c {shlex.quote(cmd)}"
